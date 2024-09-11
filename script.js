@@ -16,7 +16,9 @@ function createGrid () {
     const squares = document.querySelectorAll(".column");
     squares.forEach((value) => {
     value.addEventListener("mouseenter", () => {
-    value.classList.add("hovering");
+      value.style.opacity = Math.min((parseFloat(value.style.opacity) || 0) + 0.1, 1);
+      value.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+
   })
 })
 };

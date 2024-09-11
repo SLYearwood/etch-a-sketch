@@ -17,6 +17,7 @@ body {
 .column {
 box-sizing: border-box;
 border: black solid 1px;
+transition: opacity 0.2s;
 }
 
 .hovering {
