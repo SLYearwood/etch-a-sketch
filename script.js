@@ -1,6 +1,7 @@
+let gridSize = 16;
 createGrid();
 
-function createGrid (gridSize = 16) {
+function createGrid () {
   const container = document.querySelector(".container");
   container.innerHTML = '';
   const squareSize = 1000 / gridSize;
@@ -21,19 +22,24 @@ function createGrid (gridSize = 16) {
 };
 
 function changeGridSize () {
-  let newGridSize = prompt("How many squares would you like? Max 100!")
-  while (newGridSize > 100 || newGridSize < 1 || isNaN(newGridSize)) {
-    if (newGridSize === null) return;
-    newGridSize = prompt("Max grid size exceeded, enter a new number. Max 100!")
+  gridSize = prompt("How many squares would you like? Max 100!")
+  while (gridSize > 100 || gridSize < 1 || isNaN(gridSize)) {
+    if (gridSize === null) return;
+    gridSize = prompt("Max grid size exceeded, enter a new number. Max 100!")
   }
   const container = document.querySelector(".container");
   
-  createGrid(Number(newGridSize));
+  createGrid();
 }
 
 const changeButton = document.querySelector(".change-button");
 changeButton.addEventListener("click", changeGridSize);
 
+const resetButton = document.querySelector(".reset-button");
+resetButton.addEventListener("click", () => {
+  document.querySelector(".container").innerHTML = '';
+  createGrid();
+})
 
 
 
